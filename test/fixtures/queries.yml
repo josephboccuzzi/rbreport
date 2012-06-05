@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  startdate: 2012-06-05 10:12:31
+  enddate: 2012-06-05 10:12:31
+
+two:
+  startdate: 2012-06-05 10:12:31
+  enddate: 2012-06-05 10:12:31

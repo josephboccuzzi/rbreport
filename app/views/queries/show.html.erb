@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SQL Queries</title>
+  </head>
+  
+  <body>
+    <p>
+    
+    RFIs <br>
+    
+    SELECT * FROM messages where
+    created_at > '<%= @query.startdate %>' and
+    created_at < '<%= @query.enddate %>' and
+    to_user_full_name like '%thierry%' <br> <br>
+    
+    
+    STARS #1 <br>
+    select users.first_name, users.last_name, users.email, users.company, users.zip, users.country
+    from users, stars, products where
+    stars.user_id = users.id and
+    stars.starrable_id = products.id and
+    products.manufacturer_id = '1279' and
+    stars.created_at > '<%= @query.startdate %>' and
+    stars.created_at < '<%= @query.enddate %>' <br> <br>
+    
+    STARS #2 <br>
+    SELECT * FROM 'stars' where starrable_type = 'Manufacturer' and starrable_id = '1279' <br> <br>
+    
+    PRODUCT VIEWS <br>
+    Select  users.first_name, users.last_name, users.email, users.company, users.zip, users.country
+    From users, product_hits, products where
+    product_hits.product_id = products.id and
+    product_hits.user_id = users.id and
+    product_hits.user_id is not null and
+    products.manufacturer_id = '1279' and
+    product_hits.created_at > '<%= @query.startdate %>' and
+    product_hits.created_at < '<%= @query.enddate %>' <br> <br>
+    
+    CATEGORY SEARCHES <br>
+    SELECT users.first_name, users.last_name, users.email, users.company, users.zip, users.country 
+    FROM product_hits, users,  tags, products_tags WHERE
+    users.id = product_hits.user_id and
+    tags.id = products_tags.tag_id and
+    products_tags.product_id = product_hits. product_id and
+    tags.name like '%outdoor%' and
+    product_hits.created_at > '<%= @query.startdate %>' and
+    product_hits.created_at < '<%= @query.enddate %>'
+
+    </p>
+  </body>
+</html>

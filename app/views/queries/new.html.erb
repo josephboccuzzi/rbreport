@@ -1,0 +1,16 @@
+<h1>Input Dates</h1>
+
+<%= form_for(@query) do |f| %>
+  <div class="field">
+    <%= f.label :startdate %><br />
+    <%= f.text_field :startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :enddate %><br />
+    <%= f.text_field :enddate %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Generate" %>
+  </div>
+<% end %>
